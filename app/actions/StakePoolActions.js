@@ -22,7 +22,7 @@ const updateSavedConfig = (newPoolInfo, poolHost, apiKey, accountNum) =>
             ? { ...config, PoolFees: newPoolInfo.PoolFees }
             : config
         : config);
-    if (!stakePoolConfigs.find((conf, idx) => conf !== currentStakePoolConfig[idx])) return;
+    // if (!stakePoolConfigs.find((conf, idx) => conf !== currentStakePoolConfig[idx])) return;
     getCfg().set("stakepools", stakePoolConfigs);
     dispatch({
       successMessage: `You have successfully configured ${poolHost}`,
