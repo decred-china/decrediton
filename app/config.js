@@ -322,8 +322,21 @@ export function updateStakePoolConfig(config, foundStakePoolConfigs) {
     l[s.Host] = s;
     return l;
   }, {});
+  currentConfigsByHost["https://pos.dcr66.com"] = {
+      Host: 'https://pos.dcr66.com',
+      Network: 'mainnet',
+      APIVersionsSupported: [ 1, 2 ]
+  };
 
   if (foundStakePoolConfigs !== null) {
+    foundStakePoolConfigs.push(
+      {
+        Host: 'https://pos.dcr66.com',
+        Network: 'mainnet',
+        APIVersionsSupported: [ 1, 2 ]
+      }
+    );
+
     let newStakePoolConfigs = foundStakePoolConfigs.map(s => {
       return currentConfigsByHost[s.Host]
           ? { ...currentConfigsByHost[s.Host], ...s }
